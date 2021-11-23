@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PruebaProyec1.Views.ItemsPage"
+            
+             xmlns:local="clr-namespace:PruebaProyec1.ViewModels"  
+             xmlns:model="clr-namespace:PruebaProyec1.Models"  
+             x:Name="BrowseItemsPage">
+    <!--modificar items de las tabla de las notas-->
+    <ContentPage.ToolbarItems>
+        <!--esta en carpeta viewmodels la calse itemsviewmodel-->
+        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+   
+        <ListView Grid.Row="1" ItemsSource="{Binding Items}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding notasId}"/>
+                        <Label Text="{Binding NotasDescrip}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+</ContentPage>
